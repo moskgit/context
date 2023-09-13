@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { useReducer } from "react";
 
 //initial state
@@ -24,6 +24,22 @@ const SearchReducer = (state, action) => {
 //Context provider (wrapping the entire app with the provider)
 export const SearchContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(SearchReducer, INITIAL_STATE);
+
+  // create a function to get from localStorage
+  async function getItemFromLocal() {
+    const response = await localStorage.getItem("items");
+
+    // if ther is no "items" storage exist data will be the default state
+    const data = response ? await JSON.parse(response) : state;
+
+    // dispatch according to data
+    dispatch({ type: "NEW_SEARCH", payload: data });
+  }
+
+  useEffect(() => {
+    // call the above getItemFromLocal
+    getItemFromLocal();
+  }, []);
 
   return (
     <SearchContext.Provider

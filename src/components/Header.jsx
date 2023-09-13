@@ -14,10 +14,21 @@ const Header = () => {
   const [options, setOptions] = useState(() => optionsContext);
   const navigate = useNavigate();
 
+  // create a function to set Data to localStorage
+  async function setItemToLocal() {
+    await localStorage.setItem(
+      "items",
+      JSON.stringify({ destination, dates, options })
+    );
+  }
+
   const handleSearch = () => {
     console.log("destination, dates, options: ", destination, dates, options);
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
     navigate("/Item");
+
+    // run to store input datas to the localStorage
+    setItemToLocal();
   };
 
   return (
