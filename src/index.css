@@ -1,0 +1,62 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-size: large;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  background-color: #242424;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+.section {
+  background-color: rgba(233, 210, 127, 0.449);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.h2 {
+  margin-top: 5rem;
+  padding: 1rem;
+}
+
+.btn {
+  display: flex;
+  width: 15rem;
+  height: 2rem;
+  margin: 0.5em auto;
+  font-size: x-large;
+  font-weight: bold;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 7px;
+}
+
+.btn:hover {
+  transform: scaleY(1.2);
+  cursor: pointer;
+}
+.input {
+  display: flex;
+  margin: 0.5em;
+  font-size: x-large;
+  height: 2rem;
+  width: 15rem;
+}
+
+.p {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 15rem;
+  height: fit-content;
+  color: rgb(1, 3, 12);
+}
+
+.note {
+  text-decoration: underline;
+}
